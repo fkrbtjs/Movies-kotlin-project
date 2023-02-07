@@ -1,11 +1,12 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kyuseon.movies.adapter.RecentAdapter
+import com.kyuseon.movies.dataClass.RecentVO
 import com.kyuseon.movies.databinding.ActivityRecentBinding
-import com.kyuseon.movies.databinding.ActivityWebviewBinding
+import com.kyuseon.movies.sqlite.DBHelper
 
 class RecentActivity : AppCompatActivity() {
 

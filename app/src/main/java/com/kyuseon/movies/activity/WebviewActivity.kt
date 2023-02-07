@@ -1,4 +1,4 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

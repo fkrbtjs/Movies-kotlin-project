@@ -1,12 +1,13 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.adapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.kyuseon.movies.databinding.ItemMainBinding
+import com.kyuseon.movies.activity.MainActivity
+import com.kyuseon.movies.activity.RecentActivity
+import com.kyuseon.movies.dataClass.RecentVO
 import com.kyuseon.movies.databinding.ItemRecentBinding
 
 class RecentAdapter(val recentList:MutableList<RecentVO>): RecyclerView.Adapter<RecentAdapter.CustomViewHolder>() {
@@ -29,7 +30,7 @@ class RecentAdapter(val recentList:MutableList<RecentVO>): RecyclerView.Adapter<
         /** 해당 검색어를 MainActivity로 넘겨줌 */
         customViewHolder.itemView.setOnClickListener {
             val word = recentVO.word
-            val intent = Intent(context,MainActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             intent.putExtra("word",word)
             context.startActivity(intent)
             (context as RecentActivity).finish()

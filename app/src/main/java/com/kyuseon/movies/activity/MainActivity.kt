@@ -1,14 +1,21 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kyuseon.movies.dataClass.MoviesVO
+import com.kyuseon.movies.dataClass.RecentVO
+import com.kyuseon.movies.ResultGetSearchMovies
+import com.kyuseon.movies.adapter.CustomAdapter
+import com.kyuseon.movies.api.APIClient
+import com.kyuseon.movies.api.NaverApi
 import com.kyuseon.movies.databinding.ActivityMainBinding
+import com.kyuseon.movies.sqlite.DBHelper
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         val DB_NAME = "MoviesDB"
-        var VERSION = 30
+        var VERSION = 99
     }
 
     lateinit var customAdapter: CustomAdapter
@@ -95,11 +102,11 @@ class MainActivity : AppCompatActivity() {
                         dbHelper.insertMovies(moviesVO)
                         moviesList.add(moviesVO)
                     }
-                        /** db에 저장된 값들을 리스트에 띄움  */
-                        dbHelper.selectMovies()?.let { moviesList.addAll(it) }
-                        customAdapter.notifyDataSetChanged()
-                        /** 프로그레스바 종료  */
-                        binding.progressBar.visibility = View.INVISIBLE
+                    /** db에 저장된 값들을 리스트에 띄움  */
+                    dbHelper.selectMovies()?.let { moviesList.addAll(it) }
+                    customAdapter.notifyDataSetChanged()
+                    /** 프로그레스바 종료  */
+                    binding.progressBar.visibility = View.INVISIBLE
                 }
                 override fun onFailure(call: Call<ResultGetSearchMovies>, t: Throwable) {
 

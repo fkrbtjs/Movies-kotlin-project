@@ -1,4 +1,4 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.dataClass
 
 import android.os.Parcel
 import android.os.Parcelable

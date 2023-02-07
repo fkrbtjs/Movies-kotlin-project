@@ -1,6 +1,7 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.api
 
 
+import com.kyuseon.movies.ResultGetSearchMovies
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

@@ -1,4 +1,4 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.kyuseon.movies.dataClass.MoviesVO
+import com.kyuseon.movies.R
+import com.kyuseon.movies.activity.WebviewActivity
 import com.kyuseon.movies.databinding.ItemMainBinding
 
 class CustomAdapter(val moviesList:MutableList<MoviesVO>): RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
@@ -38,7 +41,7 @@ class CustomAdapter(val moviesList:MutableList<MoviesVO>): RecyclerView.Adapter<
         /** 해당 영화의 link(url)정보를 갖고 WebviewActivity(웹브라우저 화면)로 이동 */
         customViewHolder.itemView.setOnClickListener {
             val link = moviesVO.link
-            val intent = Intent(context,WebviewActivity::class.java)
+            val intent = Intent(context, WebviewActivity::class.java)
             intent.putExtra("link",link)
             context.startActivity(intent)
         }

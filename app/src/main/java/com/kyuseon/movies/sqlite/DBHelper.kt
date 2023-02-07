@@ -1,10 +1,12 @@
-package com.kyuseon.movies
+package com.kyuseon.movies.sqlite
 
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import com.kyuseon.movies.dataClass.MoviesVO
+import com.kyuseon.movies.dataClass.RecentVO
 
 class DBHelper(context: Context, dbName: String, version: Int) :
     SQLiteOpenHelper(context, dbName, null, version) {

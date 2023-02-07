@@ -134,6 +134,8 @@ class MainActivity : AppCompatActivity() {
         /** 검색버튼을 눌렀을 때 검색어를 db에 저장, 검색어를 입력하지않고 누를 시 전체리스트 띄움 */
         binding.btnSearch.setOnClickListener {
             val query = binding.searchview.query.toString()
+            val inputMethodManager = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(binding.searchview.windowToken, 0)
             if (query.equals("")){
                 moviesList.clear()
                 dbHelper.selectMovies()?.let { moviesList.addAll(it) }
